@@ -1,0 +1,21 @@
+#ifndef W_ANIMAL_HPP
+# define    W_ANIMAL_HPP
+
+#include "Animal.hpp"
+
+class   W_Animal   {
+    protected :
+        std::string type;
+    public :
+		W_Animal(void);
+		W_Animal(const W_Animal& copy_W_Animal);//복사생성자
+		W_Animal& operator=(const W_Animal& copy_W_Animal);
+		virtual ~W_Animal();
+		void	makeSound() const;
+		std::string getType(void) const;
+
+
+};
+
+
+#endif
