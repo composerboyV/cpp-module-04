@@ -15,7 +15,7 @@ OBJ_M = $(MPATH:.cpp=.o)
 		
 $(NAME):		$(OBJ_M)
 				@$(CC) $(OBJ_M) $(THREAD) -o $(NAME)
-				@echo -e "$(GREEN)$(NAME) created!$(DEFAULT)"
+				@echo "$(GREEN)$(NAME) created!$(DEFAULT)"
 
 all:			$(NAME)
 
@@ -27,7 +27,7 @@ clean:
 
 fclean:			clean
 				@$(RM) $(NAME)
-				@echo -e "$(RED)all deleted!$(DEFAULT)"
+				@echo "$(RED)all deleted!$(DEFAULT)"
 
 re:				fclean all
 
