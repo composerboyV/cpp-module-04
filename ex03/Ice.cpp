@@ -6,13 +6,13 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:08:47 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/24 16:24:44 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/03/25 17:01:09 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(void) : AMateria() , type("")
+Ice::Ice(void) : AMateria("ice")
 {
 }
 
@@ -20,12 +20,27 @@ Ice::~Ice()
 {
 }
 
-Ice::Ice(const std::string &type) : AMateria()
+Ice::Ice(const std::string &type) : AMateria(type)
 {
-	
+		if (this->type != type)
+			this->type = type;
 }
-Ice& Ice::operator=(const Ice& copy_Dog)
-{}
+Ice::Ice(const Ice& other)  : AMateria(other)
+{
+	this->type = other.type;
+}
+Ice& Ice::operator=(const Ice& other)
+{
+		if (this->type != other.type)
+			this->type = other.type;
+		return (*this);
+}
 
-AMateria* AMateria::clone() const
-{}
+AMateria* Ice::clone() const
+{
+	return new Ice(*this);
+}
+void	Ice::use(ICharacter& target)
+{
+	std::cout<< "* shoots an ice bolt at " << target.getName()<<" *"<< std::endl;
+}

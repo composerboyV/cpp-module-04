@@ -1,12 +1,13 @@
-NAME =Animal
+NAME =Interface
 
-CC = clang++
+CC = g++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 RM = rm -rf
 
-MPATH = main.cpp ./Cat.cpp ./Animal.cpp ./Dog.cpp ./W_Animal.cpp ./Brain.cpp
+MPATH = AMateria.cpp ./Character.cpp ./Cure.cpp ./ICharacter.cpp ./IMateriaSource.cpp \
+	./Ice.cpp ./MateriaSource.cpp ./main.cpp
 
 OBJ_M = $(MPATH:.cpp=.o)
 

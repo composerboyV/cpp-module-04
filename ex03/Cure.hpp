@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:33:50 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/24 16:20:31 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/03/25 15:34:27 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 class Cure : public AMateria 
 {
-	protected :
-		std::string type;
 	public :
-		Cure(/* args */);
+		Cure(void);
 		~Cure();
-
+		Cure(const std::string &type);
+		Cure(const Cure& other);
+		Cure& operator=(const Cure& other);
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
 };

@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 15:34:34 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/25 13:14:16 by junkwak          ###   ########.fr       */
+/*   Created: 2025/03/24 16:53:46 by junkwak           #+#    #+#             */
+/*   Updated: 2025/03/25 17:24:27 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
 
-ICharacter::ICharacter(void)
+IMateriaSource::IMateriaSource(/* args */)
 {
 }
 
-ICharacter::~ICharacter()
+IMateriaSource::~IMateriaSource()
 {
 }
-ICharacter::ICharacter(const std::string &type)
+
+IMateriaSource::IMateriaSource(const std::string &type)
 {
 	if (this->type != type)
 		this->type = type;
+	
 }
-ICharacter& ICharacter::operator=(const ICharacter& other)
+IMateriaSource& IMateriaSource::operator=(const IMateriaSource& other)
 {
-		if (this->type != other.type)
-			this->type = other.type;
-		return (*this);
+	if (this->type != other.type)
+		this->type = other.type;
+	return (*this);
 }

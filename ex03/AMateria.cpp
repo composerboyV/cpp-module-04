@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:07:59 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/24 16:07:48 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/03/25 17:24:20 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,32 @@
 #include <string>
 #include <iostream>
 
-AMateria::AMateria(void) : type("")
+AMateria::AMateria(void) 
 {}
 
 AMateria::~AMateria()
-{}
-AMateria::AMateria(std::string const &type)
 {
-
 }
-AMateria& AMateria::operator=(const AMateria& copy_Dog)
+AMateria::AMateria(std::string const &type) : type(type)
 {
-	
+}
+AMateria& AMateria::operator=(const AMateria& other)
+{
+	if (this != &other)
+	{
+		this->type = other.type;
+	}
+	return (*this);
 }
 
 
 std::string const & AMateria::getType() const
 {
 	return (this->type);
-} //리턴 더 materia 타입.
+}
 
 void	AMateria::use(ICharacter& target)
 {
-	target;
+	std::cout<<"*abcabcabc"<<target.getName()<< std::endl;
 }
+
