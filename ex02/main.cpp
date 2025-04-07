@@ -6,18 +6,19 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 13:10:54 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/12 12:38:13 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:41:06 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "W_Animal.hpp"
 
-int main()
-{
-    // const Animal* meta = new Animal(); // 이제 유효하지 않음 (추상 클래스)
+#include <iostream>
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+
+int main() {
+    std::cout << "===== 추상 클래스 테스트 =====" << std::endl;
+    
     const Animal* j = new Dog();
     const Animal* i = new Cat();
     
@@ -26,11 +27,20 @@ int main()
     
     i->makeSound();
     j->makeSound();
-    // meta->makeSound(); 추상클래스로 출력 x
     
+    std::cout << "\n===== 파생 클래스 활용 =====" << std::endl;
+    
+    Dog* dog = new Dog();
+    Cat* cat = new Cat();
+    
+    dog->makeSound();
+    cat->makeSound();
+    
+    std::cout << "\n===== 메모리 정리 =====" << std::endl;
     delete j;
     delete i;
+    delete dog;
+    delete cat;
     
     return 0;
 }
-

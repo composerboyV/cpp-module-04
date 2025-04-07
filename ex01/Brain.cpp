@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 16:55:23 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/11 20:09:54 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/04 19:56:49 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ Brain::Brain(const Brain& other)
 {
 	if (this != &other)
 	{
-		// this->ideas = other.ideas;
+		*this = other;
 	}
-}//확인 필요
+}
 Brain& Brain::operator=(const Brain& other)
 {
 

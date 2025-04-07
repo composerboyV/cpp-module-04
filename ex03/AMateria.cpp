@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:07:59 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/25 17:24:20 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:41:32 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,3 @@ void	AMateria::use(ICharacter& target)
 {
 	std::cout<<"*abcabcabc"<<target.getName()<< std::endl;
 }
-

@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:56:54 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/25 17:24:42 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/07 17:17:46 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,6 @@ MateriaSource::~MateriaSource()
 MateriaSource::MateriaSource(const MateriaSource& other) : IMateriaSource()
 {
     this->type = other.type;
-    for (int i = 0; i < 4; i++)
-        this->temp[i] = NULL;
-    for (int i = 0; i < 4; i++) {
-        if (other.temp[i] != NULL) {
-            this->temp[i] = other.temp[i]->clone();
-        }
-    }
 }
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& other)
@@ -74,19 +67,23 @@ void	MateriaSource::learnMateria(AMateria* m)
 	{
 		if (this->temp[i] == NULL)
 		{
-			this->temp[i] = m;
+			this->temp[i] = m->clone();
+			delete m;
 			return ;
 		}
 	}
+	delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	int	i = 0;
-	for(; i < 4; i++) {
-		if  (this->temp[i] != NULL && this->temp[i]->getType() == type) {
-			return this->temp[i]->clone();
-		}
+	static int	i;
+	if (this->temp[i] == NULL)
+		return NULL;
+	if  ((i >= 0 && i < 4) && this->temp[i]->getType() == type) {
+			AMateria* temp = this->temp[i]->clone();
+			i++;
+			return temp;
 	}
 	return NULL;
 }

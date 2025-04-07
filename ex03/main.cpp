@@ -6,9 +6,10 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 13:10:54 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/25 17:24:32 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:42:06 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "AMateria.hpp"
 #include "Cure.hpp"
@@ -16,51 +17,45 @@
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 
-
 int main()
 {
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
+    // 1. 기본 기능 테스트
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    src->learnMateria(new Ice());
+    
+    // 2. 캐릭터 생성 및 장비 테스트
+    ICharacter* character = new Character("Character");
+    AMateria* m1 = src->createMateria("ice");
+    character->equip(m1);
+    AMateria* m2 = src->createMateria("cure");
+    character->equip(m2);
 
-	
-	ICharacter* you  = new Character("you");
-	IMateriaSource* src2 = new MateriaSource();
-	src2->learnMateria(new Ice());
-	src2->learnMateria(new Ice());
-	src2->learnMateria(new Ice());
-	src2->learnMateria(new Cure());
-	tmp = src2->createMateria("cure");
-	you->equip(tmp);
-	tmp = src2->createMateria("ice");
-	you->equip(tmp);
-	tmp = src2->createMateria("ice");
-	you->equip(tmp);
-	tmp = src2->createMateria("ice");
-	you->equip(tmp);
-	tmp = src2->createMateria("ice");
-	you->equip(tmp);
-	you->unequip(2);
-	ICharacter* sogogi = new Character("sogogi");
-	you->use(1, *sogogi);
-	you->use(3, *sogogi);
-	you->use(2, *sogogi);
-
-	delete bob;
-	delete me;
-	delete src;
-	delete src2;
-	delete sogogi;
-	delete you;
-
-	return (0);
+    // 3. 사용 테스트
+    ICharacter* target = new Character("Target");
+    std::cout << "===== Using slot 0 and 1 =====" << std::endl;
+    character->use(0, *target);
+    character->use(1, *target);
+    
+    // 4. unequip 테스트
+    std::cout << "\n===== Unequipping slot 0 =====" << std::endl;
+    character->unequip(0);
+    
+    // 5. unequip 후 use 테스트
+    std::cout << "\n===== Using slots after unequip =====" << std::endl;
+    character->use(0, *target); // 비어있어야 함
+    character->use(1, *target); // 여전히 작동해야 함
+    
+    // 6. 슬롯 채우기 테스트
+    std::cout << "\n===== Filling empty slot =====" << std::endl;
+    AMateria* m3 = src->createMateria("ice");
+    character->equip(m3);
+    character->use(2, *target); // 새로 장착한 아이스 마테리아 사용
+    
+    delete target;
+    delete character;
+    delete src;
+    
+    return 0;
 }

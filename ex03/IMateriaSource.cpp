@@ -6,13 +6,13 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 16:53:46 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/25 17:24:27 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/04 20:02:20 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "IMateriaSource.hpp"
 
-IMateriaSource::IMateriaSource(/* args */)
+IMateriaSource::IMateriaSource(void)
 {
 }
 

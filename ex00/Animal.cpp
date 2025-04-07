@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:43:47 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/24 14:30:08 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:10:41 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 Animal::Animal(void)
 {
-    std::cout << "[Aniaml] Create" << std::endl;
+    std::cout << "[Animal] Create" << std::endl;
 }
 
 Animal::~Animal()
 {
-    std::cout << "[Aniaml] closed" << std::endl;
+    std::cout << "[Animal] closed" << std::endl;
 }
 
 Animal::Animal(const Animal& copy_Animal)

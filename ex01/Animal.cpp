@@ -6,14 +6,14 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:43:47 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/11 10:07:09 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/04 19:55:54 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 
-Animal::Animal(/* args */)
+Animal::Animal(void)
 {
     std::cout << "[Aniaml] Create" << std::endl;
 }

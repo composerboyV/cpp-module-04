@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:07:18 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/25 16:42:36 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/07 17:04:21 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ class Character : public ICharacter
 	private :
 		std::string type;
 		AMateria*	inven[4];
+		AMateria*	Incinerator[4];
+		
 	public:
 		Character(std::string name);
 		~Character();

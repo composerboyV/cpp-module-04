@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 13:10:54 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/24 15:10:39 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/07 19:23:06 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,14 @@ const Animal* j = new Dog();
 const Animal* i = new Cat();
 std::cout << j->getType() << " " << std::endl;
 std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound!
+i->makeSound();
 j->makeSound();
 meta->makeSound();
 
+delete  meta;
+delete  j;
+delete  i;
+
 return 0;
 }
+
