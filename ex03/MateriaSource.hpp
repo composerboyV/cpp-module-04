@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:57:02 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/25 13:32:40 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/10 10:58:18 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class MateriaSource : public IMateriaSource
 {
 	private:
 		AMateria*	temp[4];
+		int count;
 	public:
 		MateriaSource(void);
 		~MateriaSource();

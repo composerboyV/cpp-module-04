@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-MPATH = main.cpp ./Cat.cpp ./Animal.cpp ./Dog.cpp ./W_Animal.cpp ./Brain.cpp
+MPATH = main.cpp ./Cat.cpp ./Animal.cpp ./Dog.cpp ./WrongAnimal.cpp ./Brain.cpp
 
 OBJ_M = $(MPATH:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:07:59 by junkwak           #+#    #+#             */
-/*   Updated: 2025/04/07 19:41:32 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/10 13:56:41 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ std::string const & AMateria::getType() const
 
 void	AMateria::use(ICharacter& target)
 {
-	std::cout<<"*abcabcabc"<<target.getName()<< std::endl;
+	std::cout<<"* maybe not init materia not use for "<<target.getName()<< std::endl;
 }

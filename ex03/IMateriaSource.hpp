@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "AMateria.hpp"
-
 
 class IMateriaSource
 {

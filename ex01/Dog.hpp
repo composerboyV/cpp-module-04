@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:47:19 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/11 20:08:02 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:12:44 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ class Dog : public Animal {
 		Brain*	brain;
 	public:
 		Dog(void);
-		Dog(const Dog& copy_Dog);//복사생성자
+		Dog(const Dog& copy_Dog);
 		Dog& operator=(const Dog& copy_Dog);
 		void	makeSound() const;
 		virtual ~Dog();
-		//brain 접근해야하는 메서드
 		void	Brain_idea(int index, const std::string& idea);
 		std::string	getBrain(int index) const;
 		

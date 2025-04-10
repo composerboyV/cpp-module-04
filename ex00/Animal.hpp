@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:42:54 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/06 13:11:25 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:12:13 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Animal {
 		std::string type;
 	public:
 		Animal(void);
-		Animal(const Animal& copy_Animal);//복사생성자
+		Animal(const Animal& copy_Animal);
 		Animal& operator=(const Animal& copy_Animal);
 		virtual ~Animal();
 		virtual void	makeSound() const;

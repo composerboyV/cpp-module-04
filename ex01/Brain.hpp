@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 16:50:46 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/11 20:08:53 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:12:32 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include <iostream>
 #include <string>
-// #include "Dog.hpp"
-// #include "Cat.hpp"
 
 class Brain {
 private:

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junkwak <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:41:17 by junkwak           #+#    #+#             */
-/*   Updated: 2025/04/07 19:41:18 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/10 10:37:18 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include <iostream>
 #include <string>
 #include "Animal.hpp"
-#include "W_Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class WrongCat	: public W_Animal {
+class WrongCat	: public WrongAnimal {
 	public :
 		WrongCat(void);
 		WrongCat(const WrongCat &copy);

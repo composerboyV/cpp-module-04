@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junkwak <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:39:28 by junkwak           #+#    #+#             */
-/*   Updated: 2025/04/07 19:39:30 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/10 10:38:03 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void) :  W_Animal()
+WrongCat::WrongCat(void) :  WrongAnimal()
 {
 	this->type = "WrongCat";
 	std::cout << "Wrong Cat created" << std::endl;

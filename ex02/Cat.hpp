@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:47:48 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/12 12:36:27 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:13:34 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cat : public Animal {
 		Brain* brain;
 	public :
     	Cat(void);
-		Cat(const Cat& copy_Dog);//복사생성자
+		Cat(const Cat& copy_Dog);
 		Cat& operator=(const Cat& copy_Dog);
 		virtual void	makeSound() const;
     	virtual ~Cat();

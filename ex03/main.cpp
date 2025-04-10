@@ -1,60 +1,71 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/28 13:10:54 by junkwak           #+#    #+#             */
-/*   Updated: 2025/04/07 19:42:06 by junkwak          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
-#include "AMateria.hpp"
-#include "Cure.hpp"
+#include <iostream>
 #include "Ice.hpp"
-#include "MateriaSource.hpp"
+#include "Cure.hpp"
 #include "Character.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {
-    // 1. 기본 기능 테스트
+    // 1. 기본 테스트: MateriaSource, Character, equip, use
+    std::cout << "===== 기본 기능 테스트 =====" << std::endl;
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-    src->learnMateria(new Ice());
     
-    // 2. 캐릭터 생성 및 장비 테스트
-    ICharacter* character = new Character("Character");
-    AMateria* m1 = src->createMateria("ice");
-    character->equip(m1);
-    AMateria* m2 = src->createMateria("cure");
-    character->equip(m2);
-
-    // 3. 사용 테스트
-    ICharacter* target = new Character("Target");
-    std::cout << "===== Using slot 0 and 1 =====" << std::endl;
-    character->use(0, *target);
-    character->use(1, *target);
+    ICharacter* player = new Character("플레이어");
+    ICharacter* target = new Character("대상");
     
-    // 4. unequip 테스트
-    std::cout << "\n===== Unequipping slot 0 =====" << std::endl;
-    character->unequip(0);
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    player->equip(tmp);
     
-    // 5. unequip 후 use 테스트
-    std::cout << "\n===== Using slots after unequip =====" << std::endl;
-    character->use(0, *target); // 비어있어야 함
-    character->use(1, *target); // 여전히 작동해야 함
+    tmp = src->createMateria("cure");
+    player->equip(tmp);
     
-    // 6. 슬롯 채우기 테스트
-    std::cout << "\n===== Filling empty slot =====" << std::endl;
-    AMateria* m3 = src->createMateria("ice");
-    character->equip(m3);
-    character->use(2, *target); // 새로 장착한 아이스 마테리아 사용
+    player->use(0, *target);  // Ice 사용
+    player->use(1, *target);  // Cure 사용
     
+    // 2. unequip 테스트
+    std::cout << "\n===== unequip 테스트 =====" << std::endl;
+    player->unequip(0);  // Ice 제거
+    player->use(0, *target);  // 아무것도 없음
+    player->use(1, *target);  // Cure는 여전히 있음
+    
+    // 3. 복사 테스트
+    std::cout << "\n===== 복사 테스트 =====" << std::endl;
+    Character* originalChar = new Character("원본");
+    originalChar->equip(src->createMateria("ice"));
+    originalChar->equip(src->createMateria("cure"));
+    
+    Character* copiedChar = new Character(*originalChar);  // 복사 생성자
+    
+    std::cout << "원본 캐릭터:" << std::endl;
+    originalChar->use(0, *target);
+    originalChar->use(1, *target);
+    
+    std::cout << "복사된 캐릭터:" << std::endl;
+    copiedChar->use(0, *target);
+    copiedChar->use(1, *target);
+    
+    // 4. 복사 후 변경 테스트
+    std::cout << "\n===== 복사 후 변경 테스트 =====" << std::endl;
+    originalChar->unequip(0);
+    copiedChar->equip(src->createMateria("ice"));
+    
+    std::cout << "원본 캐릭터 (Ice 제거 후):" << std::endl;
+    originalChar->use(0, *target);
+    originalChar->use(1, *target);
+    
+    std::cout << "복사된 캐릭터 (Ice 추가 후):" << std::endl;
+    copiedChar->use(0, *target);
+    copiedChar->use(1, *target);
+    copiedChar->use(2, *target);
+    
+    // 메모리 정리
+    delete copiedChar;
+    delete originalChar;
     delete target;
-    delete character;
+    delete player;
     delete src;
     
     return 0;

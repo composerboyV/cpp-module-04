@@ -7,7 +7,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 RM = rm -rf
 
 MPATH = AMateria.cpp ./Character.cpp ./Cure.cpp ./ICharacter.cpp ./IMateriaSource.cpp \
-	./Ice.cpp ./MateriaSource.cpp ./main.cpp
+	./Ice.cpp ./MateriaSource.cpp ./main.cpp ./MateriaContainer.cpp
 
 OBJ_M = $(MPATH:.cpp=.o)
 

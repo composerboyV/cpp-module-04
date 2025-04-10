@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:47:19 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/11 10:00:06 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:12:16 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Dog : public Animal {
 	public:
 		Dog(void);
-		Dog(const Dog& copy_Dog);//복사생성자
+		Dog(const Dog& copy_Dog);
 		Dog& operator=(const Dog& copy_Dog);
 		void	makeSound() const;
 		virtual ~Dog();

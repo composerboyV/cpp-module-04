@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:07:06 by junkwak           #+#    #+#             */
-/*   Updated: 2025/04/07 19:41:42 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/10 13:36:57 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,17 @@ Character::~Character()
 Character::Character(const Character& other)  : ICharacter()
 {
     this->type = other.type;
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++) {
         this->inven[i] = NULL;
+		this->Incinerator[i] = NULL;
+	}
     for (int i = 0; i < 4; i++) {
         if (other.inven[i] != NULL) {
             this->inven[i] = other.inven[i]->clone();
         }
+		if (other.Incinerator[i] != NULL) {
+			this->Incinerator[i] = other.Incinerator[i]->clone();
+		}
     }
 }
 
@@ -62,8 +67,8 @@ Character& Character::operator=(const Character& other)
 			if (other.inven[i] != NULL) {
 				this->inven[i] = other.inven[i]->clone();
 			}
-			else
-				this->inven[i] = NULL;
+			if(other.Incinerator[i] != NULL)
+				this->Incinerator[i] = other.Incinerator[i]->clone();
 		}
 	}
 	return (*this);
@@ -72,11 +77,10 @@ Character& Character::operator=(const Character& other)
 void	Character::equip(AMateria* m)
 {
 
-	static int n;
     if (m == NULL)
         return;
-    for (; n < 4; n++) {
-        if (this->inven[n] == NULL && (n >= 0 && n < 4)) {
+    for (int n= 0; n < 4; n++) {
+        if (this->inven[n] == NULL) {
             this->inven[n] = m->clone();
     		delete m;
             return; 
@@ -85,15 +89,17 @@ void	Character::equip(AMateria* m)
 }
 void	Character::unequip(int idx)
 {
-	if (idx >= 0 && idx < 4)
+	if (idx >= 0 && idx < 4 && this->inven[idx] != NULL)
 	{
-		int count = -1;
-		if (Incinerator[++count] == NULL) {
-		Incinerator[count] = inven[idx];
-		this->inven[idx] = NULL;
+		for (int i = 0; i < 4; i++)
+		{
+			if (Incinerator[i] == NULL) {
+				Incinerator[i] = inven[idx];
+				this->inven[idx] = NULL;
+				return ;
+			}
 		}
-		else if (count > 4) 
-			std::cout<<"Full" <<std::endl;
+		std::cout<<"Incinerator Full" <<std::endl;
 	}
 }
 void	Character::use(int idx, ICharacter& target)
