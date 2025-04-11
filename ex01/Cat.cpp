@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:48:22 by junkwak           #+#    #+#             */
-/*   Updated: 2025/04/07 19:23:28 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/11 21:18:03 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ Cat::Cat(const Cat& copy_Cat) : Animal(copy_Cat)
 Cat&	Cat::operator=(const Cat& copy_Cat)
 {
 	if (this != &copy_Cat) {
-		Animal::operator=(copy_Cat);
 		this->brain = new Brain(*(copy_Cat.brain));
 		this->type = copy_Cat.type;
 	}

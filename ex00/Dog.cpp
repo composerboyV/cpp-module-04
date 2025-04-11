@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:48:38 by junkwak           #+#    #+#             */
-/*   Updated: 2025/03/11 10:00:06 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/11 21:18:10 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ Dog&	Dog::operator=(const Dog& copy_Dog)
 {
 	if (this != &copy_Dog)
 	{
-		Animal::operator=(copy_Dog);
 		this->type = copy_Dog.type;
 	}
 	std::cout << "[Dog] Copy_dog!" << std::endl;

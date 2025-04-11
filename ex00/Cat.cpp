@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:48:22 by junkwak           #+#    #+#             */
-/*   Updated: 2025/04/10 14:12:05 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/11 21:18:14 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ Cat::Cat(const Cat& copy_Cat) : Animal(copy_Cat)
 Cat&	Cat::operator=(const Cat& copy_Cat)
 {
 	if (this != &copy_Cat) {
-		Animal::operator=(copy_Cat);
 		this->type = copy_Cat.type;
 	}
 	std::cout << "[Cat] Copy_cat!" << std::endl;

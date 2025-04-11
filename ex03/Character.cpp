@@ -6,7 +6,7 @@
 /*   By: junkwak <junkwak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:07:06 by junkwak           #+#    #+#             */
-/*   Updated: 2025/04/10 13:36:57 by junkwak          ###   ########.fr       */
+/*   Updated: 2025/04/11 21:06:54 by junkwak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ Character& Character::operator=(const Character& other)
 {
 	if (this != &other)
 	{
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 4; i++ && this->inven[i])
 		{
 			if (this->inven[i] != NULL)
 			{
 				delete this->inven[i];
 				this->inven[i] = NULL;
 			}
-		}	
+		}
 		this->type = other.type;
 		for(int i = 0; i < 4; i++)
 		{
@@ -89,8 +89,22 @@ void	Character::equip(AMateria* m)
 }
 void	Character::unequip(int idx)
 {
+	int count = 0;
 	if (idx >= 0 && idx < 4 && this->inven[idx] != NULL)
 	{
+		for(int i = 0; i < 4; i++ && this->Incinerator[i])
+			count += 1;
+		if (count == 4)
+		{
+			for(int i = 0; i < 4; i++ && this->Incinerator[i])
+			{
+				if (this->Incinerator[i] != NULL)
+				{
+					delete this->Incinerator[i];
+					this->Incinerator[i] = NULL;
+				}
+			}
+		}
 		for (int i = 0; i < 4; i++)
 		{
 			if (Incinerator[i] == NULL) {
